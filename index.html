@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Utils</title>
+    <style>
+        .container{
+            width: 800px;
+            margin: auto;
+        }
+
+        #myInput{
+            display: block;
+            width: 600px;
+            height: 300px;
+            background-color: goldenrod;
+            font-size: large;
+        }
+        h1{
+            color: purple;
+        }
+        .green{
+            background-color: gold
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Text Conversion Tool</h1>
+    <textarea  id="myInput" cols="30" rows="10"></textarea> 
+    <br>
+    <button class="green" id="Upbtn">Convert To UpperCase</button>
+    <button class="green"id="Lobtn">Convert To LowerCase</button>
+    <button class="green"id="Clear">Clear Text</button>
+    <button class="green"id="Copy">CopyText</button>
+    <button class="green"id="length">Calculate Word</button>
+</div>
+
+    <script>
+        const textArea=document.getElementById('myInput');
+       const Upbtn=document.getElementById('Upbtn');
+       const Lobtn=document.getElementById('Lobtn');
+       const Clear=document.getElementById('Clear');
+       const Copy=document.getElementById('Copy');
+       const length=document.getElementById('length');
+         
+         
+       Upbtn.addEventListener('click',()=>{
+
+        const Entertext= textArea.value;
+        const convertedText=Entertext.toUpperCase();
+        textArea.value=convertedText
+       });
+
+       Lobtn.addEventListener('click',()=>{
+         const Entertext= textArea.value;
+          const convertedlotext=Entertext.toLowerCase();
+           textArea.value=convertedlotext; 
+       })
+       Clear.addEventListener('click',()=>{
+        const Entertext= textArea.value=' '
+
+       })
+
+      Copy.addEventListener('click',()=>{
+        const Entertext= textArea.select(); 
+        document.execCommand('copy');
+            alert('Text copied to clipboard!');
+
+
+       })
+
+       length.addEventListener('click',()=>{
+        const enteredText = textArea.value;
+            const characterCount = enteredText.length;
+            alert(`Character count: ${characterCount}`);
+
+       })
+
+
+    </script>
+</body>
+</html>
